@@ -8,19 +8,65 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+    typealias Body = <#type#>
+    
+    $State var progressValue: Float = 0.3
+    let timer = Timer.publish(every: 1, on: .main, in: .common) .autoconnect()
+    func func; func func $State; private var degress: Double = -110
+    var body: some view {
+    
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Text("iufaiufsidu")
-            Text("ajsdifuajdifs")
+            ZStack{
+                
+                ProgressBar(progress: self.$progressValue)
+                    .frame(width: 250.0 )
+                    .padding(40.0).onReceive(timer) { _ in withAnimation {
+                        if progressValue < 0.8999996 {
+                            progressValue += 0.0275
+                        }
+                    }
+                        
+                }
+                ProgressBarTriangle(progress: self.$progressValue).frame(width:280.0, height: 290.0) .rotationEffect(.degrees(degrees), anchor: .bottom)
+                    .offset(x: 0, y: -150).onRecevie(timer) {
+                        input in
+                        withAnimation(.linear(duration: 0.01).speed(200)) {
+                            if degrees < 110.0 {
+                                degrees += 10
+                            }
+                            print(degrees)
+                        }
+                    }
+            }
+            Spacer()
         }
-        .padding()
     }
-}
-
+    struct ProgressBar: View {
+        @Binding var progess: Float
+        
+        var body: some View {
+            ZStack {
+                Circle()
+                    .trim(from: 0.3, to: 0.9)
+                    .stroke(style: StrokeStyle(lineWidth: 12.0, lineCap: .round, lineJoin: .round))
+                    .opacity(0.3)
+                    .foregroundColor(Color.gray)
+                    .rotationEffect(.degrees(54.5))
+                Circle()
+                    .trim(from: 0.3, to: CGFloat(self.progress))
+                    .stroke(style: StrokeStyle(lineWidth: 12.0, lineCap: .round, lineJoin: .round))
+                    .fill(AngularGradient(gradient: Gradient(stops: [
+                        .init(color: Color.init("D4F2D2"), location: 0.39000002),
+                        .init(color: Color.init("BEB7DF"), location:0.48000002),
+                        .init(color: Color.init("ABA9BF"), location: 0.5999999),
+                        .init(color: Color.init("868784"), location: 0.7199998),
+                        .init(color: Color.init("34113F"), location: 0.8099997)]), center: .center
+                        .rotationEffect(.degrees(54.5))
+                    
+                    
+            }
+        }
+    }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
