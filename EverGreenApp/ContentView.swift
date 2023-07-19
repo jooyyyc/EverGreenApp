@@ -24,13 +24,13 @@ struct ContentView: View {
                     }
                         
                 }
-                ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degrees(degress), anchor: .bottom)
+                ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degress(degress), anchor: .bottom)
                     .offset(x: 0, y: -150).onRecevie(timer) {
                         input in
                         withAnimation(.linear(duration: 0.01).speed(200)) {
                             if degress < 110.0 {
                                 degress += 10                            }
-                            print(degrees)
+                            print(degress)
                         }
                     }
             }
@@ -57,11 +57,11 @@ struct ContentView: View {
                         .init(color: Color.init("ABA9BF"), location: 0.5999999),
                         .init(color: Color.init("868784"), location: 0.7199998),
                         .init(color: Color.init("34113F"), location: 0.8099997)]), center: .center
-                        .rotationEffect(.degrees(54.5))
-                    
-                                          Text("July").bold().foregroundColor(Color.init("000000"))
+                        .rotationEffect(.degrees(54.5)),
+
+                                          angle: Text("July").bold().foregroundColor(Color.init("000000"))
                                               .alignmentGuide(.leading) { d in d[.leading] }
-                        .font(.title) as! Angle as! Angle
+                        .font(.title) as! Angle
 
                         Text("824").font(Font.system(size: 44)).bold() .foregroundColor(Color.init(hex: "000000"))
                         Text("Out of 100")
@@ -100,4 +100,5 @@ struct ContentView_Previews: PreviewProvider {
                             opacity: Double(a) / 255
 
                     }
+                        }
                         }
