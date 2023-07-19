@@ -49,11 +49,11 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)
-                
+                Text("-$24")
                 Text("-$\(globalExpense)")
-                    .padding(.bottom, 130.0)
-                    .border(Color.gray, width:2)
-                    .cornerRadius(5)
+//                    .padding(.bottom, 130.0)
+//                    .border(Color.gray, width:2)
+//                    .cornerRadius(5)
 //                Text("\(price)")
 //                    .padding()
                 HStack{

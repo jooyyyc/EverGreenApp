@@ -58,54 +58,60 @@ struct BudgetMaker: View {
     }
     var body: some View {
         NavigationStack {
-            VStack{
-                //budget initializer
-                Group{
-                    Text("Budget Maker")
-                    Text("Enter Budget:")
-                    TextField("$", value: $budget, format: .number)
-                                    .textFieldStyle(.roundedBorder)
-                                    .padding()
-                    Spacer()
-                }
-                //checkboxes
-                Group{
-                    Toggle(isOn: $isFood) {
-                        Text("Food")
+            ZStack{
+                
+                VStack{
+                    //budget initializer
+                    Group{
+                        Text("Budget Maker")
+                            .font(.title)
+                        Text("Enter Budget:")
+                        TextField("$", value: $budget, format: .number)
+                                        .textFieldStyle(.roundedBorder)
+                                        .padding()
+                        Spacer()
                     }
-                    .onChange(of: isFood) { value in
-                        addVal()
-                    }
-                    .toggleStyle(iOSCheckboxToggleStyle())
+                    //checkboxes
+                    Group{
+                        Toggle(isOn: $isFood) {
+                            Text("Food")
+                        }
+                        .onChange(of: isFood) { value in
+                            addVal()
+                        }
+                        .toggleStyle(iOSCheckboxToggleStyle())
 
-                    Toggle(isOn: $isClothes) {
-                        Text("Clothes")
+                        Toggle(isOn: $isClothes) {
+                            Text("Clothes")
+                        }
+                        .toggleStyle(iOSCheckboxToggleStyle())
+                        Toggle(isOn: $isSkincare) {
+                            Text("Skincare")
+                        }
+                        .toggleStyle(iOSCheckboxToggleStyle())
+                        Toggle(isOn: $isShoes) {
+                            Text("Shoes")
+                        }
+                        .toggleStyle(iOSCheckboxToggleStyle())
+                        Toggle(isOn: $isTransport) {
+                            Text("Transport")
+                        }
+                        .toggleStyle(iOSCheckboxToggleStyle())
                     }
-                    .toggleStyle(iOSCheckboxToggleStyle())
-                    Toggle(isOn: $isSkincare) {
-                        Text("Skincare")
+                    Spacer()
+                    Button("Confirm Expenses + Budget"){
+                        addVal()
+                        print(priorities)
+                        globalBudget = budget
                     }
-                    .toggleStyle(iOSCheckboxToggleStyle())
-                    Toggle(isOn: $isShoes) {
-                        Text("Shoes")
+                    NavigationLink(destination: PersonalBudget()) {
+                        Text("View your Budget!")
                     }
-                    .toggleStyle(iOSCheckboxToggleStyle())
-                    Toggle(isOn: $isTransport) {
-                        Text("Transport")
-                    }
-                    .toggleStyle(iOSCheckboxToggleStyle())
-                }
-                Spacer()
-                Button("Confirm Expenses + Budget"){
-                    addVal()
-                    print(priorities)
-                    globalBudget = budget
-                }
-                NavigationLink(destination: PersonalBudget()) {
-                    Text("View your Budget!")
                 }
             }
-        }
+                
+            }
+            
     }
 }
 
