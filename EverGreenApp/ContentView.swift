@@ -50,7 +50,7 @@ struct ContentView: View {
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)
                 
-                Text("-$\(globalPrice)")
+                Text("-$\(globalExpense)")
                     .padding(.bottom, 130.0)
                     .border(Color.gray, width:2)
                     .cornerRadius(5)
@@ -98,7 +98,7 @@ struct ContentView: View {
                                             .init(color: Color.init(hex: "34113F"), location: 0.8099997)]), center: .center))
                                         .rotationEffect(.degrees(54.5))
                     VStack{
-                                        Text("\(spent)").font(Font.system(size: 44)).bold().foregroundColor(Color.init(hex: "314058"))
+                                        Text("\(spent + totalExpense)").font(Font.system(size: 44)).bold().foregroundColor(Color.init(hex: "314058"))
                                         Text("Your Spendings").bold().foregroundColor(Color.init(hex: "32E1A0"))
                                     }
                                 }

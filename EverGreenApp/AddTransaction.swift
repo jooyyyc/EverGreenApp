@@ -25,7 +25,9 @@ struct AddTransaction: View {
                     .cornerRadius(5)
                     .padding()
                 Button("Submit amount"){
-                    globalPrice = price
+                    globalExpense = price
+                    totalExpense += price
+                    
                 }
                 .padding()
                 

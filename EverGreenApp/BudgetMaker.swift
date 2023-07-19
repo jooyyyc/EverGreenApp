@@ -73,7 +73,11 @@ struct BudgetMaker: View {
                     Toggle(isOn: $isFood) {
                         Text("Food")
                     }
+                    .onChange(of: isFood) { value in
+                        addVal()
+                    }
                     .toggleStyle(iOSCheckboxToggleStyle())
+
                     Toggle(isOn: $isClothes) {
                         Text("Clothes")
                     }
