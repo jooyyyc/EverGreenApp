@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    //progress bar
     @State var progressValue: Float = 0.3
         let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         @State private var degrees1: Double = -110
@@ -38,6 +39,7 @@ struct ContentView: View {
 }
     
     struct ProgressBar: View {
+        @State var spent = 0
             @Binding var progress: Float
         var body: some View {
                     ZStack {
@@ -58,8 +60,8 @@ struct ContentView: View {
                                                 .init(color: Color.init(hex: "34113F"), location: 0.8099997)]), center: .center))
                                             .rotationEffect(.degrees(54.5))
                         VStack{
-                                            Text("824").font(Font.system(size: 44)).bold().foregroundColor(Color.init(hex: "314058"))
-                                            Text("Great Score!").bold().foregroundColor(Color.init(hex: "32E1A0"))
+                                            Text("\(spent)").font(Font.system(size: 44)).bold().foregroundColor(Color.init(hex: "314058"))
+                                            Text("Your Spendings").bold().foregroundColor(Color.init(hex: "32E1A0"))
                                         }
                                     }
                                 }
