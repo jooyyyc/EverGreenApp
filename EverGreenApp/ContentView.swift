@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var progressValue: Float = 0.3
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var degress: Double = -110
+    @State private var degrees: Double = -110
     var body: some View {
         VStack {
             ZStack{
@@ -24,13 +24,13 @@ struct ContentView: View {
                     }
                         
                 }
-                ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degress(degress), anchor: .bottom)
+                ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degrees(degrees), anchor: .bottom)
                     .offset(x: 0, y: -150).onRecevie(timer) {
                         input in
                         withAnimation(.linear(duration: 0.01).speed(200)) {
-                            if degress < 110.0 {
-                                degress += 10                            }
-                            print(degress)
+                            if degrees < 110.0 {
+                                degrees += 10                            }
+                            print(degrees)
                         }
                     }
             }
@@ -57,7 +57,7 @@ struct ContentView: View {
                         .init(color: Color.init("ABA9BF"), location: 0.5999999),
                         .init(color: Color.init("868784"), location: 0.7199998),
                         .init(color: Color.init("34113F"), location: 0.8099997)]), center: .center
-                        .rotationEffect(.degrees(54.5)),
+                        .rotationEffect(degrees(54.5)),
 
                                           angle: Text("July").bold().foregroundColor(Color.init("000000"))
                                               .alignmentGuide(.leading) { d in d[.leading] }
