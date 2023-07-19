@@ -49,45 +49,45 @@ struct PersonalBudget: View {
             }
             //expense 2
             if priorities[2] == 1 {
-                emoji1 = "🌯"
-                p1 = "food"
+                emoji2 = "🌯"
+                p2 = "food"
             }
             else if priorities[2] == 2 {
-                emoji1 = "👚"
-                p1 = "clothes"
+                emoji2 = "👚"
+                p2 = "clothes"
             }
             else if priorities[2] == 3 {
-                emoji1 = "🧴"
-                p1 = "skincare/makeup"
+                emoji2 = "🧴"
+                p2 = "skincare/makeup"
             }
             else if priorities[2] == 4 {
-                emoji1 = "👟"
-                p1 = "shoes"
+                emoji2 = "👟"
+                p2 = "shoes"
             }
             else if priorities[2] == 5 {
-                emoji1 = "🚌"
-                p1 = "transport"
+                emoji2 = "🚌"
+                p2 = "transport"
             }
             //expense 3
             if priorities[3] == 1 {
-                emoji1 = "🌯"
-                p1 = "food"
+                emoji3 = "🌯"
+                p3 = "food"
             }
             else if priorities[3] == 2 {
-                emoji1 = "👚"
-                p1 = "clothes"
+                emoji3 = "👚"
+                p3 = "clothes"
             }
             else if priorities[3] == 3 {
-                emoji1 = "🧴"
-                p1 = "skincare/makeup"
+                emoji3 = "🧴"
+                p3 = "skincare/makeup"
             }
             else if priorities[3] == 4 {
-                emoji1 = "👟"
-                p1 = "shoes"
+                emoji3 = "👟"
+                p3 = "shoes"
             }
             else if priorities[3] == 5 {
-                emoji1 = "🚌"
-                p1 = "transport"
+                emoji3 = "🚌"
+                p3 = "transport"
             }
         }
     }
@@ -98,7 +98,7 @@ struct PersonalBudget: View {
                     assign()
                     v1 = Int(Double(globalBudget) * 0.45)
                     v2 = Int(Double(globalBudget) * 0.35)
-                   v3 = Int(Double(globalBudget) * 0.2)
+                    v3 = Int(Double(globalBudget) * 0.2)
                 }
             }
             HStack{
