@@ -9,6 +9,9 @@ import SwiftUI
 var priorities = [0]
 var globalBudget = 0
 
+var globalPrice = 0
+var globalAddPrice = "Enter amount of this purchase"
+
 @main
 struct EverGreenAppApp: App {
     var body: some Scene {

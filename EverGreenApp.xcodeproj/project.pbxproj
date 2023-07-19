@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD27A2222A6864DA00E87BA4 /* AddTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A2212A6864DA00E87BA4 /* AddTransaction.swift */; };
+		BD27A2242A688D7C00E87BA4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A2232A688D7C00E87BA4 /* Resources.swift */; };
 		BD735A142A68524800E3A1C7 /* BudgetMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD735A132A68524800E3A1C7 /* BudgetMaker.swift */; };
 		BD735A162A68552D00E3A1C7 /* PersonalBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD735A152A68552D00E3A1C7 /* PersonalBudget.swift */; };
 		BDAFAA9B2A65F328004EB604 /* EverGreenAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAFAA9A2A65F328004EB604 /* EverGreenAppApp.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD27A2212A6864DA00E87BA4 /* AddTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransaction.swift; sourceTree = "<group>"; };
+		BD27A2232A688D7C00E87BA4 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		BD735A132A68524800E3A1C7 /* BudgetMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMaker.swift; sourceTree = "<group>"; };
 		BD735A152A68552D00E3A1C7 /* PersonalBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBudget.swift; sourceTree = "<group>"; };
 		BDAFAA972A65F328004EB604 /* EverGreenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverGreenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +61,10 @@
 			children = (
 				BDAFAA9A2A65F328004EB604 /* EverGreenAppApp.swift */,
 				BDAFAA9C2A65F328004EB604 /* ContentView.swift */,
+				BD27A2212A6864DA00E87BA4 /* AddTransaction.swift */,
 				BD735A132A68524800E3A1C7 /* BudgetMaker.swift */,
 				BD735A152A68552D00E3A1C7 /* PersonalBudget.swift */,
+				BD27A2232A688D7C00E87BA4 /* Resources.swift */,
 				BDAFAA9E2A65F32A004EB604 /* Assets.xcassets */,
 				BDAFAAA02A65F32A004EB604 /* Preview Content */,
 			);
@@ -145,6 +151,8 @@
 			files = (
 				BDAFAA9D2A65F328004EB604 /* ContentView.swift in Sources */,
 				BDAFAA9B2A65F328004EB604 /* EverGreenAppApp.swift in Sources */,
+				BD27A2222A6864DA00E87BA4 /* AddTransaction.swift in Sources */,
+				BD27A2242A688D7C00E87BA4 /* Resources.swift in Sources */,
 				BD735A162A68552D00E3A1C7 /* PersonalBudget.swift in Sources */,
 				BD735A142A68524800E3A1C7 /* BudgetMaker.swift in Sources */,
 			);
