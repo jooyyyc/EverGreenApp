@@ -20,8 +20,8 @@ struct Resources: View {
                         Divider()
                         Spacer()
                             .frame(height: 20.0)
-                        NavigationLink(destination:ContentView()){
-                            Text("Affordable Eats")
+                        NavigationLink(destination: Food()){
+                            Text("Affordable Eats") .padding(/*@START_MENU_TOKEN@*/.leading, 5.0/*@END_MENU_TOKEN@*/)
                         }
                         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                         .frame(width: 350.0, height: 100.0)
