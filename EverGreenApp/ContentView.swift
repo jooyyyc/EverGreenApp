@@ -84,6 +84,7 @@ struct ContentView: View {
         var body: some View {
             NavigationStack {
                 ZStack {
+                    
                     Color(red: 204/255, green: 225/255, blue: 198/255)
                     Circle()
                         .trim(from: 0.3, to: 0.9)
@@ -103,7 +104,7 @@ struct ContentView: View {
                                         .rotationEffect(.degrees(54.5))
                     VStack{
                                         Text("\(spent + totalExpense)").font(Font.system(size: 44)).bold().foregroundColor(Color.init(hex: "314058"))
-                                        Text("Your Spendings").bold().foregroundColor(Color.init(hex: "32E1A0"))
+                                        Text("Your Spendings").bold().foregroundColor(Color.init(hex: "0F3810"))
                                     }
                                 }
             }
