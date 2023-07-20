@@ -89,7 +89,17 @@ struct PersonalBudget: View {
                 emoji3 = "🚌"
                 p3 = "transport"
             }
+            
         }
+        else{
+            emoji1 = ""
+            emoji2 = ""
+            emoji3 = ""
+            p1 = ""
+            p2 = ""
+            p3 = ""
+        }
+        
     }
     var body: some View {
         NavigationStack {

@@ -17,66 +17,117 @@ struct ContentView: View {
         @State private var degrees1: Double = -110
     var body: some View {
         NavigationStack{
-            VStack {
-                Text("JULY")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Spacer()
-                ZStack {
-                    Color(red: 204/255, green: 225/255, blue: 198/255)
-                        .ignoresSafeArea()
-                    ProgressBar(progress: self.$progressValue)
-                        .frame(width: 250.0, height: 250.0)
-                        .padding(40.0).onReceive(timer) { _ in
-                            withAnimation {
-                                if progressValue < 0.8999996 {
-                                    progressValue += 0.0275
+            ZStack{
+                Color(red: 204/255, green: 225/255, blue: 198/255)
+                    .ignoresSafeArea()
+                VStack {
+                    Text("JULY 2023")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.black)
+                     
+
+                    Spacer()
+                    ZStack {
+                        Color(red: 204/255, green: 225/255, blue: 198/255)
+                        ProgressBar(progress: self.$progressValue)
+                            .frame(width: 250.0, height: 250.0)
+                            .padding(40.0).onReceive(timer) { _ in
+                                withAnimation {
+                                    if progressValue < 0.8999996 {
+                                        progressValue += 0.0275
+                                    }
                                 }
                             }
-                        }
-                    ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degrees(degrees1), anchor: .bottom)
-                        .offset(x: 0, y: -150).onReceive(timer) { input in
-                            withAnimation(.linear(duration: 0.01).speed(200)) {
-                                if degrees1 < 110.0 {
-                                    degrees1 += 10
+                        ProgressBarTriangle(progress: self.$progressValue).frame(width: 280.0, height: 290.0).rotationEffect(.degrees(degrees1), anchor: .bottom)
+                            .offset(x: 0, y: -150).onReceive(timer) { input in
+                                withAnimation(.linear(duration: 0.01).speed(200)) {
+                                    if degrees1 < 110.0 {
+                                        degrees1 += 10
+                                    }
+                                    print(degrees1)
                                 }
-                                print(degrees1)
                             }
+                            .ignoresSafeArea()
+                        
+                    }
+                    HStack{
+                        Image("newfood")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 120.0)
+                            .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                        Image("shawp")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+
+                            .frame(height: 120.0)
+                            .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                        Image("care")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 120.0)
+                            .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                    }
+                    .frame(width: 400.0, height: 100.0)
+                    Text("RECENT TRANSACTIONS")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
+                    Text("-$24")
+                        .frame(width: 350.0, height: 50.0)
+                        .background(Color(red: 0.709, green: 0.69, blue: 0.814))
+                        .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                    Text("-$12")
+                        .frame(width: 350.0, height: 50.0)
+                        .background(Color(red: 0.709, green: 0.69, blue: 0.814))
+                        .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                    
+                    Text("-$\(globalExpense)")
+                        .frame(width: 350.0, height: 50.0)
+                        .background(Color(red: 0.709, green: 0.69, blue: 0.814))
+                        .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+
+                    Spacer()
+                        .frame(height: 20.0)
+                    HStack{
+                        NavigationLink(destination:BudgetMaker()){
+                            Text("Budget maker")
+                                .tint(.white)
+                                .fontWeight(.bold)
                         }
+                        NavigationLink(destination: AddTransaction()){
+                            Text("+")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .tint(.white)
+                                .padding(.bottom, 1)
+                                .padding()
+                            
+                                
+                        }
+                        NavigationLink(destination: Resources()){
+                            Text("Resources")
+                                .tint(.white)
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/.top, 40.0/*@END_MENU_TOKEN@*/)
+                    .frame(width: 400.0, height: 30.0)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 0.288, saturation: 0.199, brightness: 0.537)/*@END_MENU_TOKEN@*/)
+                    .background(Rectangle()
+                        .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.432, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/))
                 }
-                Spacer()
-                Text("Recent transactions")
-                    .font(.largeTitle)
-                    .fontWeight(.light)
-                    .multilineTextAlignment(.leading)
-                Text("-$24")
-                Text("-$\(globalExpense)")
-//                    .padding(.bottom, 130.0)
-//                    .border(Color.gray, width:2)
-//                    .cornerRadius(5)
-//                Text("\(price)")
-//                    .padding()
-                HStack{
-                    NavigationLink(destination:BudgetMaker()){
-                        Text("Budget maker")
-                    }
-                    NavigationLink(destination: AddTransaction()){
-                        Text("+")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .padding(.bottom, 1)
-                            .padding()
-                    }
-                    NavigationLink(destination: Resources()){
-                        Text("Resources")
-                    }
-                }
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .frame(width: 400.0, height: 30.0)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
-                .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.432, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                .frame(width: 500.0)
+
             }
+            
         }
+
     }
     struct ProgressBar: View {
         @State var spent = Int()

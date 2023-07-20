@@ -100,9 +100,6 @@ struct BudgetMaker: View {
                                 Text("FOOD 🧋")
                                     .font(.title2)
                             }
-                            .onChange(of: isFood) { value in
-                                addVal()
-                            }
                             .toggleStyle(iOSCheckboxToggleStyle())
 
                             Toggle(isOn: $isClothes) {
