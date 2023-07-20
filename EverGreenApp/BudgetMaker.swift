@@ -63,18 +63,38 @@ struct BudgetMaker: View {
                 VStack{
                     //budget initializer
                     Group{
-                        Text("Budget Maker")
+                        Text("BUDGET MAKER")
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .frame(width: 370.0, height: 90.0)
+                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.purple/*@END_MENU_TOKEN@*/)
+                            .border(/*@START_MENU_TOKEN@*/Color(hue: 0.781, saturation: 0.824, brightness: 0.223)/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .cornerRadius(15)
+                        Text("ENTER BUDGET:")
                             .font(.title)
-                        Text("Enter Budget:")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.purple)
+                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                         TextField("$", value: $budget, format: .number)
+                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                                         .textFieldStyle(.roundedBorder)
-                                        .padding()
+                                        .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.purple/*@END_MENU_TOKEN@*/)
+                                        
+                                        
                         Spacer()
+                            .frame(height: 10.0)
+                        Text("CHECK OFF 3 EXPENSES: ")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.purple)
+                            .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
                     }
                     //checkboxes
                     Group{
                         Toggle(isOn: $isFood) {
-                            Text("Food")
+                            Text("FOOD")
+                                .font(.title)
                         }
                         .onChange(of: isFood) { value in
                             addVal()
@@ -82,28 +102,54 @@ struct BudgetMaker: View {
                         .toggleStyle(iOSCheckboxToggleStyle())
 
                         Toggle(isOn: $isClothes) {
-                            Text("Clothes")
+                            Text("CLOTHES")
+                                .font(.title)
                         }
                         .toggleStyle(iOSCheckboxToggleStyle())
                         Toggle(isOn: $isSkincare) {
-                            Text("Skincare")
+                            Text("SKINCARE")
+                                .font(.title)
                         }
                         .toggleStyle(iOSCheckboxToggleStyle())
                         Toggle(isOn: $isShoes) {
-                            Text("Shoes")
+                            Text("SHOES")
+                                .font(.title)
                         }
                         .toggleStyle(iOSCheckboxToggleStyle())
                         Toggle(isOn: $isTransport) {
-                            Text("Transport")
+                            Text("TRANSPORT")
+                                .font(.title)
                         }
                         .toggleStyle(iOSCheckboxToggleStyle())
                     }
+                    .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                    .frame(width: 350.0, height: 50.0)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 0.807, saturation: 0.152, brightness: 0.977)/*@END_MENU_TOKEN@*/)
+                    
+                    
                     Spacer()
-                    Button("Confirm Expenses + Budget"){
+                        .frame(height: 20.0)
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .buttonBorderShape(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=shape: ButtonBorderShape@*/.capsule/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                    
+                    Button {
+                        print("Edit button was tapped")
                         addVal()
                         print(priorities)
                         globalBudget = budget
+                    } label: {
+                        Label("Generate Budget!", systemImage: "dollarsign.circle.fill")
                     }
+                        
+                    
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
+                    .background(Color(hue: 0.761, saturation: 0.059, brightness: 0.989))
+                    .border(/*@START_MENU_TOKEN@*/Color.purple/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/4/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     NavigationLink(destination: PersonalBudget()) {
                         Text("View your Budget!")
                     }

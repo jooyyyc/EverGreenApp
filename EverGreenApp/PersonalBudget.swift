@@ -93,33 +93,62 @@ struct PersonalBudget: View {
     }
     var body: some View {
         NavigationStack {
-            VStack{
-                Button("Generate Your Budget!"){
-                    assign()
-                    v1 = Int(Double(globalBudget) * 0.45)
-                    v2 = Int(Double(globalBudget) * 0.35)
-                    v3 = Int(Double(globalBudget) * 0.2)
+            ZStack{
+                Color(.blue)
+               .ignoresSafeArea()
+                
+                VStack{
+                    Button("Click to View Your Budget!"){
+                        assign()
+                        v1 = Int(Double(globalBudget) * 0.45)
+                        v2 = Int(Double(globalBudget) * 0.35)
+                        v3 = Int(Double(globalBudget) * 0.2)
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.432, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                    .background(Color(red: 0.524, green: 0.823, blue: 0.815))
+                    .border(/*@START_MENU_TOKEN@*/Color(red: 0.535, green: 0.48, blue: 0.689)/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/4/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+                    Group{
+                        HStack{
+                            Text(emoji1)
+                                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                            
+                            Text("Spend $\(v1) on \(p1)")
+                        }
+                        .frame(width: 350.0, height: 100.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.535, green: 0.48, blue: 0.689)/*@END_MENU_TOKEN@*/)
+                        
+                        HStack{
+                            Text(emoji2)
+                                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                            
+                            Text("Spend $\(v2) on \(p2)")
+                        }
+                        .frame(width: 350.0, height: 100.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.957, green: 0.724, blue: 0.72)/*@END_MENU_TOKEN@*/)
+                        HStack{
+                            Text(emoji3)
+                                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                            
+                            Text("Spend $\(v3) on \(p3)")
+                        }
+                        .frame(width: 350.0, height: 100.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.524, green: 0.823, blue: 0.815)/*@END_MENU_TOKEN@*/)
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.semibold/*@END_MENU_TOKEN@*/)
                 }
-            }
-            HStack{
-                Text(emoji1)
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 
-                Text("Spend $\(v1)  on \(p1)")
-            }
-            HStack{
-                Text(emoji2)
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 
-                Text("Spend $\(v2)  on \(p2)")
+              
             }
-            HStack{
-                Text(emoji3)
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                
-                Text("Spend $\(v3)  on \(p3)")
             }
-        }
+
+            
+        
     }
 }
 
