@@ -195,7 +195,7 @@ struct PersonalBudget: View {
                     Text("Home")
                 }
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                NavigationLink(destination: PersonalBudget()){
+                NavigationLink(destination: BudgetMaker()){
                     Text("BudgetMaker")
                         .font(.title3)
                         .fontWeight(.bold)

@@ -97,7 +97,7 @@ struct BudgetMaker: View {
                             .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
                         Group{
                             Toggle(isOn: $isFood) {
-                                Text("FOOD")
+                                Text("FOOD 🧋")
                                     .font(.title2)
                             }
                             .onChange(of: isFood) { value in
@@ -106,22 +106,22 @@ struct BudgetMaker: View {
                             .toggleStyle(iOSCheckboxToggleStyle())
 
                             Toggle(isOn: $isClothes) {
-                                Text("CLOTHES")
+                                Text("CLOTHES 🩳")
                                     .font(.title2)
                             }
                             .toggleStyle(iOSCheckboxToggleStyle())
                             Toggle(isOn: $isSkincare) {
-                                Text("SKINCARE")
+                                Text("SKINCARE 🧼")
                                     .font(.title2)
                             }
                             .toggleStyle(iOSCheckboxToggleStyle())
                             Toggle(isOn: $isShoes) {
-                                Text("SHOES")
+                                Text("SHOES 👠")
                                     .font(.title2)
                             }
                             .toggleStyle(iOSCheckboxToggleStyle())
                             Toggle(isOn: $isTransport) {
-                                Text("TRANSPORT")
+                                Text("TRANSPORT 🚎")
                                     .font(.title2)
                                     
                                     
