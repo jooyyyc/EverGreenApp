@@ -59,83 +59,90 @@ struct BudgetMaker: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                
+                Color(red: 223/255, green: 216/255, blue: 245/255)
+                    .ignoresSafeArea()
                 VStack{
                     //budget initializer
                     Group{
                         Text("BUDGET MAKER")
                             .font(.largeTitle)
                             .fontWeight(.heavy)
-                            .frame(width: 370.0, height: 90.0)
-                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.purple/*@END_MENU_TOKEN@*/)
-                            .border(/*@START_MENU_TOKEN@*/Color(hue: 0.781, saturation: 0.824, brightness: 0.223)/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .frame(width: 370.0, height: 70.0)
+                            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.431, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                            .border(/*@START_MENU_TOKEN@*/Color(red: 0.166, green: 0.065, blue: 0.224)/*@END_MENU_TOKEN@*/, width: 8)
                             .cornerRadius(15)
+                            .foregroundColor(Color(red: 190/255, green: 183/255, blue: 223/255))
                         Text("ENTER BUDGET:")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(Color.purple)
-                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color(red: 110/255, green: 97/255, blue: 148/255))
+                            .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
                         TextField("$", value: $budget, format: .number)
                             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                                         .textFieldStyle(.roundedBorder)
                                         .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
-                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.purple/*@END_MENU_TOKEN@*/)
+                                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.432, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/)
                                         
                                         
                         Spacer()
                             .frame(height: 10.0)
-                        Text("CHECK OFF 3 EXPENSES: ")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.purple)
-                            .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
+                        
                     }
                     //checkboxes
-                    Group{
-                        Toggle(isOn: $isFood) {
-                            Text("FOOD")
-                                .font(.title)
-                        }
-                        .onChange(of: isFood) { value in
-                            addVal()
-                        }
-                        .toggleStyle(iOSCheckboxToggleStyle())
+                    VStack{
+                        Text("CHECK OFF 3 EXPENSES:")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(red: 110/255, green: 97/255, blue: 148/255))
+                            .padding(/*@START_MENU_TOKEN@*/[.top, .leading, .trailing]/*@END_MENU_TOKEN@*/)
+                        Group{
+                            Toggle(isOn: $isFood) {
+                                Text("FOOD")
+                                    .font(.title2)
+                            }
+                            .onChange(of: isFood) { value in
+                                addVal()
+                            }
+                            .toggleStyle(iOSCheckboxToggleStyle())
 
-                        Toggle(isOn: $isClothes) {
-                            Text("CLOTHES")
-                                .font(.title)
+                            Toggle(isOn: $isClothes) {
+                                Text("CLOTHES")
+                                    .font(.title2)
+                            }
+                            .toggleStyle(iOSCheckboxToggleStyle())
+                            Toggle(isOn: $isSkincare) {
+                                Text("SKINCARE")
+                                    .font(.title2)
+                            }
+                            .toggleStyle(iOSCheckboxToggleStyle())
+                            Toggle(isOn: $isShoes) {
+                                Text("SHOES")
+                                    .font(.title2)
+                            }
+                            .toggleStyle(iOSCheckboxToggleStyle())
+                            Toggle(isOn: $isTransport) {
+                                Text("TRANSPORT")
+                                    .font(.title2)
+                                    
+                                    
+                            }
+                            .toggleStyle(iOSCheckboxToggleStyle())
                         }
-                        .toggleStyle(iOSCheckboxToggleStyle())
-                        Toggle(isOn: $isSkincare) {
-                            Text("SKINCARE")
-                                .font(.title)
-                        }
-                        .toggleStyle(iOSCheckboxToggleStyle())
-                        Toggle(isOn: $isShoes) {
-                            Text("SHOES")
-                                .font(.title)
-                        }
-                        .toggleStyle(iOSCheckboxToggleStyle())
-                        Toggle(isOn: $isTransport) {
-                            Text("TRANSPORT")
-                                .font(.title)
-                        }
-                        .toggleStyle(iOSCheckboxToggleStyle())
+                        .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(Color(red: 110/255, green: 97/255, blue: 148/255))
+                        
                     }
-                    .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width: 350.0, height: 50.0)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 0.807, saturation: 0.152, brightness: 0.977)/*@END_MENU_TOKEN@*/)
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
+                    .border(/*@START_MENU_TOKEN@*/Color(red: 0.166, green: 0.065, blue: 0.224)/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/3/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(5)
                     
                     
                     Spacer()
                         .frame(height: 20.0)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .buttonBorderShape(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=shape: ButtonBorderShape@*/.capsule/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                 
                     
                     Button {
-                        print("Edit button was tapped")
                         addVal()
                         print(priorities)
                         globalBudget = budget
@@ -146,13 +153,33 @@ struct BudgetMaker: View {
                     
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.purple/*@END_MENU_TOKEN@*/)
-                    .background(Color(hue: 0.761, saturation: 0.059, brightness: 0.989))
-                    .border(/*@START_MENU_TOKEN@*/Color.purple/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/4/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.876, green: 0.846, blue: 0.962)/*@END_MENU_TOKEN@*/)
+                    .background(Color(red: 0.432, green: 0.383, blue: 0.582))
+                    .border(/*@START_MENU_TOKEN@*/Color(red: 0.166, green: 0.065, blue: 0.224)/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/4/*@END_MENU_TOKEN@*/)
                     .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
-                    NavigationLink(destination: PersonalBudget()) {
-                        Text("View your Budget!")
+                    Spacer()
+                    HStack{
+                        NavigationLink(destination:ContentView()){
+                            Text("Home")
+                        }
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                        NavigationLink(destination: PersonalBudget()){
+                            Text("Your Budget")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .padding(/*@START_MENU_TOKEN@*/.leading, 5.0/*@END_MENU_TOKEN@*/)
+                        }
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                        NavigationLink(destination: Resources()){
+                            Text("Resources")
+                        }
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     }
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .frame(width: 400.0, height: 30.0)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 1.0, green: 1.0, blue: 1.0)/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.432, green: 0.383, blue: 0.582)/*@END_MENU_TOKEN@*/)
+                    
                 }
             }
                 
