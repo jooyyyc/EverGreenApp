@@ -92,8 +92,7 @@ struct ContentView: View {
                         .background(Color(red: 0.709, green: 0.69, blue: 0.814))
                         .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
 
-                    Spacer()
-                        .frame(height: 20.0)
+                    
                     HStack{
                         NavigationLink(destination:BudgetMaker()){
                             Text("Budget maker")
